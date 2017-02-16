@@ -4,6 +4,12 @@
 
     Can take a Sample Location as an argument.
 
+    some samples to use:
+
+    7d389ec44d45f2f882e8aa7dbb1dd2f9
+    0164d0dbea683757d8a69376f9cecb98
+    8167738acf3f0fe6c76c593e8fbbbe52
+
 */
 var fs = require('fs');
 var SandBox = require('./JSandBox/JSSandbox.js')
@@ -15,7 +21,7 @@ var dataRoot = "C:/Users/dobrien/Documents/MyScripts/DataFolders/";
 var sampleDirName = dataRoot + "Samples/";
 
 //Wrapper to run the Main Function
-(function main(){
+function main(){
     if(process.argv[2]){
         sampleDirName = process.argv[2];
     }
@@ -39,4 +45,6 @@ var sampleDirName = dataRoot + "Samples/";
             });
         });
     });
-})()
+};
+
+module.exports = main;
