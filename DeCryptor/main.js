@@ -17,11 +17,11 @@ var SandBox = require('./JSandBox/JSSandbox.js')
 var currentVersion = "0.3.0";
 
 //Program Settings.
-var dataRoot = "C:/Users/dobrien/Documents/MyScripts/DataFolders/";
+var dataRoot = "C:/Users/vapaspen/Documents/Programing Projects/JSDecrypter/DataFiles/";
 var sampleDirName = dataRoot + "Samples/";
 
 //Wrapper to run the Main Function
-function main(){
+(function main(){
     if(process.argv[2]){
         sampleDirName = process.argv[2];
     }
@@ -32,7 +32,7 @@ function main(){
     fs.readdir(sampleDirName, function(err, fileNames) {
         fileNames.forEach(function(fileName){
             fs.readFile(sampleDirName + fileName , function (err, data){
-                var localSandBox = new SandBox(fileName)
+                var localSandBox = new SandBox(fileName);
 
                 localSandBox.run(String(data), function(LogObj){
                     var logName = dataRoot + "Sandboxes/" + fileName + ".json";
@@ -45,6 +45,6 @@ function main(){
             });
         });
     });
-};
+})();
 
-module.exports = main;
+//module.exports = main;
